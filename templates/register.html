@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+{% block title %}<title>Register</title>{% endblock title %}
+{% block body %}
+{% for message in messages %}
+<div class="alert alert-{{message.tags}} alert-dismissible fade show" role="alert">
+  <strong>MESSAGE  </strong>{{message}}
+  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+{% endfor %}
+
+
+<div class ="col-lg-5 shadow mx-auto">
+<div class="alert alert-success"><h2>Registration</h2></div>
+<div class="p-4">
+<form class="row g-3" action='register' method='POST'>
+{% csrf_token %}
+  <div class="col-md-6">
+    <label for="inputEmail4" class="form-label">First Name</label>
+    <input type="text" class="form-control"  name='firstname' id='firstname'>
+  </div>
+  <div class="col-md-6">
+    <label for="inputPassword4" class="form-label">Last Name</label>
+    <input type="text" class="form-control"  name='lastname' id='lastname'>
+  </div>
+  <div class="col-12">
+    <label for="inputAddress" class="form-label">Username</label>
+    <input type="text" class="form-control"  name='username' id='username'>
+  </div>
+  <div class="col-12">
+    <label for="inputAddress2" class="form-label">Email</label>
+    <input type="email" class="form-control"  name='email' id='email'>
+  </div>
+  <div class="col-md-6">
+    <label for="inputCity" class="form-label">Password-1</label>
+    <input type="password" class="form-control" id="password1" name='pass1'>
+  </div>
+  <div class="col-md-6">
+    <label for="inputState" class="form-label">Password-2</label>
+    <input type="password" class="form-control" id="password2" name='pass2'>
+    
+  </div>
+  
+  
+  <div class="col-12">
+    <button type="submit" class="btn btn-primary">Sign in</button>
+  </div>
+</form>
+</div>
+</div>
+</div>
+{% endblock body %}
